@@ -52,14 +52,4 @@
 {{LANDMINES_LIST}}
 
 ---
-
-## 🛡️ Production Hardening Advisory
-*Vibe-coded prototypes are incredible for finding product-market fit, but vulnerable to security leaks and bill explosions under heavy traffic.*
-
-> [!IMPORTANT]
-> **Need human architectural audit or production hardening?**  
-> Connect with senior engineers to audit your auth, database connection pool, and security headers before public launch.  
-> 👉 **[Schedule a 30-Minute Architecture Audit](https://github.com/Sai-Pavan-Kumar/Vibexplain)**
-
----
-*Generated with ⚡ [Vibexplain](https://github.com/Sai-Pavan-Kumar/Vibexplain) — The Founder Technical Defense System for Vibe Coders.*
+*Vibexplain built by The SurfBoard*

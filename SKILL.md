@@ -4,7 +4,7 @@ description: Scans any codebase to generate an executive layman pitch, architect
 license: MIT
 metadata:
   version: "1.0.0"
-  author: Vibexplain Contributors
+  author: The SurfBoard
 ---
 
 # Vibexplain: The Founder Technical Defense System

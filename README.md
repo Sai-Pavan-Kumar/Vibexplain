@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="vibexplain-logo.webp" alt="Vibexplain Logo" width="120" style="border-radius: 20px; margin-bottom: 12px;" />
+
 # ⚡ Vibexplain
 ### The Founder Technical Defense System for Vibe Coders
 
@@ -148,5 +150,5 @@ Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more informa
 ---
 
 <div align="center">
-  <sub>Built for the vibe coding generation. Never get roasted in a tech meeting again.</sub>
+  <sub>Vibexplain built by The SurfBoard. Never get roasted in a tech meeting again.</sub>
 </div>
