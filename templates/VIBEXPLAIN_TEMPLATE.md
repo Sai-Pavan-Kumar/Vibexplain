@@ -2,52 +2,63 @@
 
 > **Project:** {{PROJECT_NAME}}  
 > **Tagline:** {{PROJECT_TAGLINE}}  
-> **Generated:** {{TIMESTAMP}}  
-> **Companion Dashboard:** Open [`vibexplain.html`](./vibexplain.html) in your browser for the interactive visual blueprint.
+> **Audit Date:** {{TIMESTAMP}}  
+> **Verification Status:** Ground-Truth Verified (Line-Level Cited)  
+> **Interactive Blueprint:** Open [`vibexplain.html`](./vibexplain.html) in your browser for the Apple-grade interactive dashboard.
 
 ---
 
 ## 1. 🎤 The 60-Second Layman Pitch (EL5)
-*Use this when speaking to non-technical angel investors, customers, or friends. Zero confusing jargon.*
+*Synthesized 100% from verified source code. Zero fabricated marketing analogies.*
 
-- **The Problem:** {{PITCH_PROBLEM}}
-- **The Solution:** {{PITCH_SOLUTION}}
-- **The Secret Sauce (Moat):** {{PITCH_MOAT}}
-- **Elevator Script (Word-for-Word):**
+- **The Real Problem:** {{PITCH_PROBLEM}}
+- **The Code-Verified Solution:** {{PITCH_SOLUTION}}
+- **The Technical Moat / Reality:** {{PITCH_MOAT}}
+- **Word-for-Word Elevator Script:**
   > "{{PITCH_ELEVATOR_SCRIPT}}"
 
 ---
 
 ## 2. 🏛️ The "Why This Stack?" Matrix
-*Why your AI coding assistant chose these tools, and the real-world trade-offs.*
+*Technologies actively imported and utilized in the codebase.*
 
-| Technology | Category | Why We Chose It | Trade-off / Limitation |
+| Technology | Role / Category | Verified Code Reference | Architectural Rationale & Trade-Off |
 |---|---|---|---|
 {{TECH_STACK_ROWS}}
 
 ---
 
-## 3. ⚡ Core Request Flow & Architecture
-*When a user triggers an action in the application, here is how the request travels across layers:*
+## 3. ⚡ Ground-Truth Request Journey (Call-Chain Traced)
+*Traced from active UI event triggers down to the database and network layers.*
 
 ```mermaid
 {{MERMAID_DIAGRAM}}
 ```
 
-### Request Lifecycle Breakdown:
+### Step-by-Step Execution Chain (With Line-Level Citations):
 {{REQUEST_LIFECYCLE_STEPS}}
 
 ---
 
-## 4. 🃏 The "Investor & Senior Dev Grill" Cheat Sheet
-*Hard technical questions investors or senior developers will ask, and exact confident answers to give.*
+## 4. ⚖️ Architectural Discrepancies & Execution Timing
+*Honest comparison between intended design / schema definitions and actual runtime execution.*
+
+{{ARCHITECTURAL_DISCREPANCIES}}
+
+### Live Features vs. Dead Stubs / Mock Data:
+{{DEAD_STUBS_AND_MOCKS}}
+
+---
+
+## 5. 🃏 The "Investor & Senior Dev Grill" Cheat Sheet
+*Authoritative, technically grounded answers to tough questions about concurrency, scaling, and data integrity.*
 
 {{GRILL_QUESTIONS_ANSWERS}}
 
 ---
 
-## 5. ⚠️ Hidden Landmines & Technical Debt
-*Vulnerabilities, bottlenecks, and unoptimized code created during vibe-coding sessions.*
+## 6. ⚠️ Evidence-Backed Landmines & Technical Debt
+*Every issue cited below points to an existing file and line number in this codebase.*
 
 {{LANDMINES_LIST}}
 

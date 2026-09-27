@@ -28,7 +28,24 @@ You spent the weekend vibe-coding a SaaS using **Cursor**, **Lovable**, **v0**, 
 
 You freeze because you didn't write the code—your AI did.
 
-**Vibexplain solves this.** It deep-scans your entire repository and equips you with both a plain-English translation of your app and an interactive visual dashboard so you can defend your technical choices with bulletproof confidence.
+**Vibexplain solves this.** Unlike generic AI summarizers that guess based on your project title, Vibexplain runs a **Ground-Truth Code Trace** from UI event handlers down to database queries. It produces an evidence-backed dossier and an Apple-grade interactive visual blueprint so you can defend your technical choices with bulletproof confidence.
+
+---
+
+## 🛡️ The Ground-Truth Engine (Zero Guesswork & Anti-Hallucination)
+
+Generic AI tools hallucinate. They read a project name like *"BloodRadar"* or *"Eventime"*, assume it's *"Uber for X"*, and fabricate complex background queues that don't exist in your code.
+
+Vibexplain is governed by **8 non-negotiable guardrails**:
+
+1. **Forbid Analogies Before Code Tracing:** The Layman Pitch is strictly synthesized *last*. No assumptions based on project names or UI text.
+2. **Sequential Flow Verification:** Checks actual execution timing. If two services execute in parallel in the same second without delays, it states that fact honestly.
+3. **Architectural Discrepancy Detection:** Flags mismatches where schemas intend tiered stages, but the frontend blasts them simultaneously.
+4. **Mandatory Line-Level Citations:** Every claim in the request flow must cite `file_path:line_number`. No citation = forbidden from claiming it happens.
+5. **Live Code vs. Dead Stubs:** Distinguishes between reachable user flows and abandoned, unimported AI mock files.
+6. **Persistence Reality Check:** Distinguishes real database commits from temporary in-memory state or local array mocks.
+7. **Evidence-Backed Landmines Only:** Zero generic textbook warnings. Every vulnerability quotes an existing file and line in the repo.
+8. **Inverted Execution Order:** Ground-truth facts are proven first; the elevator pitch is distilled last.
 
 ---
 

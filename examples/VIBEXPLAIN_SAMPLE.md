@@ -54,12 +54,23 @@ sequenceDiagram
     UI-->>User: Render output in real-time
 ```
 
-### Request Lifecycle Breakdown:
-1. **User Interaction:** User enters a prompt and selects target LLMs. React state sets an optimistic loading skeleton.
-2. **Edge Guard:** The request arrives at `/api/generate`. Middleware validates the encrypted JWT session token and Zod parses input length and temperature.
-3. **Credit Verification:** Prisma executes an atomic decrement on the user's remaining monthly credits in PostgreSQL.
-4. **Model Streaming:** Vercel AI SDK dispatches an async streaming request to Anthropic/OpenAI.
-5. **Real-time Pipe:** Text tokens stream directly into the browser DOM via chunked HTTP transfer encoding.
+### Step-by-Step Execution Chain (With Line-Level Citations):
+1. **User Interaction (`components/prompt-editor.tsx:42`):** User enters a prompt and triggers `handleRunTest()`. React state applies an optimistic loading skeleton.
+2. **Edge Guard (`app/api/generate/route.ts:18`):** The request arrives at `/api/generate`. Middleware validates the encrypted JWT session token via `auth()` and Zod parses input length and temperature (`schema.ts:12`).
+3. **Credit Verification (`app/api/generate/route.ts:34`):** Prisma executes an atomic decrement on the user's remaining monthly credits in PostgreSQL via `prisma.user.update()`.
+4. **Model Streaming (`app/api/generate/route.ts:52`):** Vercel AI SDK dispatches an async streaming request via `streamText()` to Anthropic or OpenAI.
+5. **Real-time Pipe (`components/prompt-editor.tsx:88`):** Text tokens stream directly into the browser DOM via chunked HTTP transfer encoding.
+
+---
+
+## 4. ⚖️ Architectural Discrepancies & Execution Timing
+
+### Discrepancy 1: Tiered Fallback vs. Parallel Execution
+- **Schema / Design Intent:** Comments in `app/api/generate/route.ts:48` state *"Fallback to OpenAI if Anthropic exceeds 5s timeout"*.
+- **Code Reality (`app/api/generate/route.ts:55`):** The code currently calls `Promise.all()` firing both Anthropic and OpenAI simultaneously, discarding the slower one. This doubles provider API costs per run instead of executing sequentially on timeout.
+
+### Dead Stubs & Mock State:
+- `lib/services/stripe-webhook.ts` exists in the repo with 80 lines of code, but has 0 active imports across the entire `app/` directory (`[DEAD STUB / UNWIRED]`).
 
 ---
 
