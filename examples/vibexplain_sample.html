@@ -3,53 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vibexplain | Interactive Technical Blueprint</title>
+  <title>Vibexplain | Technical Blueprint</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            brand: {
-              cyan: '#06b6d4',
-              violet: '#8b5cf6',
-              emerald: '#10b981',
-              amber: '#f59e0b',
-              rose: '#f43f5e',
-            }
-          }
-        }
-      }
-    }
-  </script>
   <style>
+    :root {
+      color-scheme: dark;
+    }
     body {
-      background-color: #07090e;
-      color: #f3f4f6;
-      background-image: radial-gradient(rgba(30, 41, 59, 0.4) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background-color: #000000;
+      color: #F5F5F7;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .glass-panel {
-      background: rgba(17, 24, 39, 0.7);
-      backdrop-filter: blur(12px);
+    .apple-glass {
+      background: rgba(20, 20, 22, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .apple-card {
+      background-color: #141416;
       border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .glow-cyan {
-      box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.25);
+    .apple-card:hover {
+      border-color: rgba(255, 255, 255, 0.16);
     }
     .perspective {
       perspective: 1000px;
     }
     .flip-card-inner {
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       transform-style: preserve-3d;
     }
     .flipped .flip-card-inner {
@@ -62,128 +47,119 @@
     .flip-card-back {
       transform: rotateY(180deg);
     }
-    /* Custom scrollbars */
     ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 4px;
+      height: 4px;
     }
     ::-webkit-scrollbar-track {
-      background: #0f172a;
+      background: #000000;
     }
     ::-webkit-scrollbar-thumb {
-      background: #334155;
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #475569;
+      background: #2C2C2E;
+      border-radius: 2px;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col font-sans selection:bg-brand-cyan selection:text-black">
+<body class="min-h-screen flex flex-col selection:bg-white selection:text-black">
 
-  <!-- TOP BRANDING BAR -->
-  <header class="border-b border-gray-800/80 sticky top-0 z-50 glass-panel">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+  <!-- APPLE-GRADE CLEAN HEADER -->
+  <header class="sticky top-0 z-50 apple-glass">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-violet-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20">
-          ⚡
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="font-extrabold text-lg tracking-tight text-white" id="brand-title">Vibexplain</span>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800 font-mono">v1.0 Blueprint</span>
-          </div>
-          <p class="text-xs text-gray-400" id="project-subtitle">Vibe-Coded Architecture Defense System</p>
+        <img src="data:image/webp;base64,UklGRqRdAABXRUJQVlA4IJhdAACQkAKdASrmBOYEPpFIo0wlpKeioTLY6PASCWVu+/9SpY4BIF/fl/GV+j9z/dNxMcB4vKDemp5wyGdPvpL81/i/23/t3//8+LOPh/7j/jf9j/gf3b+j/gvrp7qfUP1F/bv3Q/APGa6U/ueb353/Hf97/Df5z92vl1/r/2f9xH8e/t//W/uH9+////M+wH+M/zL/q/3j/PfAb/PfsV7pv7F/vv/Z/pf9R8Av6D/jP2r/7vxqf6D9rPc3/v/UD/sX/a/fT39vUo/dj2Df5x/vP//7SH/d/d/4Xv65/zP27/6fw5/9P////H3AP//7Yv8A///Wr9n/+H/avXP8e/YP97/YP8T+8Hun199vHF38p4GfyPtx/4HeX+X/tP63ewF+Nfz3/V/2/2FftP1l7zPaf9n+sXsC+z31D0+/q/NH/V9QL/a+nnflUCPKH/1vL39g+xF+fv/A7Y4ZajLgf3hzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45x7/C6Wa/LiXEuJcS4lxLiXEuEwgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICRPdRlwP7w5xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnHOOcc45xzjnH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" alt="Vibexplain Logo" class="w-8 h-8 rounded-lg object-cover ring-1 ring-white/10 shadow-sm" />
+        <div class="flex flex-col">
+          <span class="font-semibold text-sm tracking-tight text-[#F5F5F7]">Vibexplain</span>
+          <span class="text-[11px] text-[#86868B] -mt-0.5">Built by The SurfBoard</span>
         </div>
       </div>
 
-      <div class="flex items-center gap-3">
-        <button onclick="window.print()" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white bg-gray-800/80 hover:bg-gray-700/80 rounded-lg border border-gray-700 transition">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+      <div class="flex items-center gap-2.5">
+        <button onclick="window.print()" class="hidden sm:inline-flex items-center px-3.5 py-1.5 text-xs font-medium text-[#D1D1D6] hover:text-white bg-white/[0.05] hover:bg-white/[0.1] rounded-full border border-white/[0.08] transition">
           Export PDF
         </button>
-        <a id="audit-btn" href="https://github.com/Sai-Pavan-Kumar/Vibexplain" target="_blank" class="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-black bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 rounded-lg shadow-md transition">
-          ⭐ Star on GitHub
+        <a id="github-btn" href="https://github.com/Sai-Pavan-Kumar/Vibexplain" target="_blank" class="inline-flex items-center px-4 py-1.5 text-xs font-semibold text-black bg-white hover:bg-[#E5E5EA] rounded-full transition shadow-sm">
+          Star on GitHub
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-8">
-    
-    <!-- PROJECT HERO BANNER -->
-    <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden glow-cyan">
-      <div class="absolute -right-20 -top-20 w-80 h-80 bg-violet-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none"></div>
+  <!-- MAIN WRAPPER -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full space-y-10">
 
-      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-        <div class="space-y-3 max-w-3xl">
-          <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white" id="hero-project-name">
-              PromptStudio AI
-            </h1>
-            <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-violet-500/20 text-violet-300 border border-violet-500/30" id="hero-tag">
-              Full-Stack SaaS
-            </span>
+    <!-- HERO SECTION -->
+    <div class="apple-card rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        <div class="space-y-4 max-w-2xl">
+          <div class="flex items-center gap-2.5">
+            <span class="text-[11px] font-semibold tracking-wider uppercase text-[#86868B]">Technical Blueprint</span>
+            <span class="w-1 h-1 rounded-full bg-white/20"></span>
+            <span class="text-xs text-[#A1A1A6] font-medium" id="hero-tag">Full-Stack Architecture</span>
           </div>
-          <p class="text-gray-300 text-sm sm:text-base leading-relaxed" id="hero-one-liner">
+
+          <h1 class="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-[#F5F5F7]" id="hero-project-name">
+            PromptStudio AI
+          </h1>
+
+          <p class="text-[#86868B] text-base leading-relaxed" id="hero-one-liner">
             An AI playground that lets teams test and version prompts collaboratively across multiple LLM providers.
           </p>
-          <div class="flex flex-wrap items-center gap-4 pt-2 text-xs text-gray-400">
-            <span class="flex items-center gap-1">📁 <strong class="text-gray-200" id="hero-files-count">48 files</strong> analyzed</span>
-            <span class="flex items-center gap-1">⚡ <strong class="text-gray-200" id="hero-stack-count">6 core technologies</strong></span>
-            <span class="flex items-center gap-1">🕒 Generated: <span class="text-gray-300" id="hero-timestamp">Just now</span></span>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2 text-xs text-[#636366]">
+            <span id="hero-files-count">48 files analyzed</span>
+            <span>•</span>
+            <span id="hero-stack-count">6 core technologies</span>
+            <span>•</span>
+            <span id="hero-timestamp">September 2026</span>
           </div>
         </div>
 
-        <!-- QUICK HEALTH STATS -->
+        <!-- MINIMALIST STATS BENTO -->
         <div class="grid grid-cols-3 gap-3 w-full lg:w-auto">
-          <div class="glass-panel p-3 rounded-xl text-center border-emerald-500/30">
-            <div class="text-2xl font-bold text-emerald-400" id="stat-security">85%</div>
-            <div class="text-[11px] font-medium text-gray-400 uppercase tracking-wider mt-0.5">Security</div>
+          <div class="bg-white/[0.03] p-4 rounded-2xl text-center border border-white/[0.06] min-w-[90px]">
+            <div class="text-2xl font-semibold text-[#F5F5F7] tracking-tight" id="stat-security">85%</div>
+            <div class="text-[11px] font-medium text-[#86868B] mt-1">Security</div>
           </div>
-          <div class="glass-panel p-3 rounded-xl text-center border-cyan-500/30">
-            <div class="text-2xl font-bold text-cyan-400" id="stat-scalability">70%</div>
-            <div class="text-[11px] font-medium text-gray-400 uppercase tracking-wider mt-0.5">Scale Fit</div>
+          <div class="bg-white/[0.03] p-4 rounded-2xl text-center border border-white/[0.06] min-w-[90px]">
+            <div class="text-2xl font-semibold text-[#F5F5F7] tracking-tight" id="stat-scalability">70%</div>
+            <div class="text-[11px] font-medium text-[#86868B] mt-1">Scale Fit</div>
           </div>
-          <div class="glass-panel p-3 rounded-xl text-center border-amber-500/30">
-            <div class="text-2xl font-bold text-amber-400" id="stat-landmines">3</div>
-            <div class="text-[11px] font-medium text-gray-400 uppercase tracking-wider mt-0.5">Landmines</div>
+          <div class="bg-white/[0.03] p-4 rounded-2xl text-center border border-white/[0.06] min-w-[90px]">
+            <div class="text-2xl font-semibold text-[#F5F5F7] tracking-tight" id="stat-landmines">3</div>
+            <div class="text-[11px] font-medium text-[#86868B] mt-1">Risks</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- NAVIGATION TABS -->
-    <div class="flex items-center gap-2 border-b border-gray-800 pb-2 overflow-x-auto text-sm">
-      <button onclick="switchTab('architecture')" id="tab-btn-architecture" class="tab-btn px-4 py-2 font-medium rounded-lg text-cyan-400 bg-gray-800/80 border border-gray-700/80 transition flex items-center gap-2 whitespace-nowrap">
-        <span>🗺️ Architecture Map</span>
-      </button>
-      <button onclick="switchTab('dataflow')" id="tab-btn-dataflow" class="tab-btn px-4 py-2 font-medium rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 transition flex items-center gap-2 whitespace-nowrap">
-        <span>⚡ Data Journey</span>
-      </button>
-      <button onclick="switchTab('flashcards')" id="tab-btn-flashcards" class="tab-btn px-4 py-2 font-medium rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 transition flex items-center gap-2 whitespace-nowrap">
-        <span>🃏 Investor Grill-Me</span>
-      </button>
-      <button onclick="switchTab('landmines')" id="tab-btn-landmines" class="tab-btn px-4 py-2 font-medium rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 transition flex items-center gap-2 whitespace-nowrap">
-        <span>⚠️ Debt & Landmines</span>
-      </button>
-      <button onclick="switchTab('pitch')" id="tab-btn-pitch" class="tab-btn px-4 py-2 font-medium rounded-lg text-gray-400 hover:text-gray-200 hover:bg-gray-800/40 transition flex items-center gap-2 whitespace-nowrap">
-        <span>🎤 60s Layman Pitch</span>
-      </button>
+    <!-- APPLE SEGMENTED CONTROL (TABS) -->
+    <div class="flex justify-center sm:justify-start overflow-x-auto pb-1">
+      <div class="inline-flex p-1 rounded-full bg-[#1C1C1E] border border-white/[0.08] shadow-inner">
+        <button onclick="switchTab('architecture')" id="tab-btn-architecture" class="tab-btn px-4 py-2 font-medium rounded-full text-xs text-black bg-white shadow-sm transition-all whitespace-nowrap">
+          Architecture
+        </button>
+        <button onclick="switchTab('dataflow')" id="tab-btn-dataflow" class="tab-btn px-4 py-2 font-medium rounded-full text-xs text-[#8E8E93] hover:text-[#F5F5F7] transition-all whitespace-nowrap">
+          Data Journey
+        </button>
+        <button onclick="switchTab('flashcards')" id="tab-btn-flashcards" class="tab-btn px-4 py-2 font-medium rounded-full text-xs text-[#8E8E93] hover:text-[#F5F5F7] transition-all whitespace-nowrap">
+          Technical Q&A
+        </button>
+        <button onclick="switchTab('landmines')" id="tab-btn-landmines" class="tab-btn px-4 py-2 font-medium rounded-full text-xs text-[#8E8E93] hover:text-[#F5F5F7] transition-all whitespace-nowrap">
+          Code Health
+        </button>
+        <button onclick="switchTab('pitch')" id="tab-btn-pitch" class="tab-btn px-4 py-2 font-medium rounded-full text-xs text-[#8E8E93] hover:text-[#F5F5F7] transition-all whitespace-nowrap">
+          Executive Pitch
+        </button>
+      </div>
     </div>
 
     <!-- TAB 1: ARCHITECTURE MAP -->
     <section id="tab-architecture" class="tab-content space-y-6">
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="text-xl font-bold text-white tracking-tight">System Architecture & Tech Stack</h2>
-          <p class="text-xs text-gray-400">Click on any component node to inspect why your AI coder picked it, how it communicates, and the trade-offs.</p>
-        </div>
+      <div>
+        <h2 class="text-xl font-semibold text-[#F5F5F7] tracking-tight">System Architecture</h2>
+        <p class="text-xs text-[#86868B] mt-1">Component choices and architectural trade-offs determined during development.</p>
       </div>
 
-      <!-- NODE GRID -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="nodes-container">
         <!-- Rendered via JS -->
       </div>
@@ -192,113 +168,99 @@
     <!-- TAB 2: DATA JOURNEY -->
     <section id="tab-dataflow" class="tab-content hidden space-y-6">
       <div>
-        <h2 class="text-xl font-bold text-white tracking-tight">Interactive Request Lifecycle</h2>
-        <p class="text-xs text-gray-400">What actually happens under the hood when a user clicks an action in your app?</p>
+        <h2 class="text-xl font-semibold text-[#F5F5F7] tracking-tight">Request Lifecycle</h2>
+        <p class="text-xs text-[#86868B] mt-1">Step-by-step walkthrough of how data moves from user interaction through the backend layers.</p>
       </div>
 
-      <div class="glass-panel p-6 rounded-2xl space-y-6">
+      <div class="apple-card p-6 sm:p-8 rounded-3xl space-y-6">
         <div class="flex items-center justify-between flex-wrap gap-4">
           <div class="flex items-center gap-2">
-            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Active Scenario:</span>
-            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-cyan-400 font-mono text-xs font-semibold" id="dataflow-scenario-name">
-              User Generates AI Prompt
-            </span>
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-[#86868B]">Primary Flow:</span>
+            <span class="text-xs font-semibold text-[#F5F5F7]" id="dataflow-scenario-name">User Generates AI Prompt</span>
           </div>
+
           <div class="flex items-center gap-2">
-            <button onclick="prevStep()" class="px-3 py-1.5 text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg font-medium transition">
-              ← Prev Step
+            <button onclick="prevStep()" class="px-3.5 py-1.5 text-xs bg-white/[0.06] hover:bg-white/[0.12] text-[#D1D1D6] rounded-full font-medium border border-white/[0.08] transition">
+              Previous
             </button>
-            <span class="text-xs font-mono text-gray-400 px-2" id="step-indicator">Step 1 of 5</span>
-            <button onclick="nextStep()" class="px-3 py-1.5 text-xs bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-lg transition">
-              Next Step →
+            <span class="text-xs text-[#86868B] px-2 font-medium" id="step-indicator">Step 1 of 5</span>
+            <button onclick="nextStep()" class="px-3.5 py-1.5 text-xs bg-white text-black font-semibold rounded-full hover:bg-[#E5E5EA] transition shadow-sm">
+              Next
             </button>
           </div>
         </div>
 
         <!-- PROGRESS BAR -->
-        <div class="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
-          <div id="step-progress" class="bg-gradient-to-r from-cyan-500 to-violet-500 h-1.5 rounded-full transition-all duration-300" style="width: 20%"></div>
+        <div class="w-full bg-white/[0.06] rounded-full h-1 overflow-hidden">
+          <div id="step-progress" class="bg-white h-1 rounded-full transition-all duration-300" style="width: 20%"></div>
         </div>
 
         <!-- STEP DISPLAY -->
-        <div class="border border-gray-800 rounded-xl p-6 bg-gray-900/50 relative overflow-hidden" id="step-card">
+        <div class="border border-white/[0.08] rounded-2xl p-6 bg-black/40 space-y-4" id="step-card">
           <!-- Populated by JS -->
         </div>
       </div>
     </section>
 
-    <!-- TAB 3: INVESTOR GRILL-ME FLASHCARDS -->
+    <!-- TAB 3: TECHNICAL Q&A FLASHCARDS -->
     <section id="tab-flashcards" class="tab-content hidden space-y-6">
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="text-xl font-bold text-white tracking-tight">The "Investor / Senior Dev Grill" Prep</h2>
-          <p class="text-xs text-gray-400">Click any card to flip it and read the exact, technically defensible answer.</p>
-        </div>
-        <span class="text-xs text-gray-400 font-mono">💡 Tip: Practice speaking these out loud</span>
+      <div>
+        <h2 class="text-xl font-semibold text-[#F5F5F7] tracking-tight">Technical Evaluation Q&A</h2>
+        <p class="text-xs text-[#86868B] mt-1">Key questions raised by investors and engineering reviewers with authoritative defense responses.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="flashcards-container">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="flashcards-container">
         <!-- Rendered via JS -->
       </div>
     </section>
 
-    <!-- TAB 4: DEBT & LANDMINES -->
+    <!-- TAB 4: CODE HEALTH & LANDMINES -->
     <section id="tab-landmines" class="tab-content hidden space-y-6">
       <div>
-        <h2 class="text-xl font-bold text-white tracking-tight">AI Spaghetti & Hidden Landmines</h2>
-        <p class="text-xs text-gray-400">Potential risks, security flaws, or scalability limits found in the vibe-coded code.</p>
+        <h2 class="text-xl font-semibold text-[#F5F5F7] tracking-tight">Code Health & Identified Risks</h2>
+        <p class="text-xs text-[#86868B] mt-1">Security, rate-limiting, and scalability considerations identified in the codebase.</p>
       </div>
 
-      <div class="space-y-4" id="landmines-container">
+      <div class="space-y-3.5" id="landmines-container">
         <!-- Rendered via JS -->
       </div>
-
-
     </section>
 
-    <!-- TAB 5: 60S LAYMAN PITCH -->
+    <!-- TAB 5: EXECUTIVE PITCH -->
     <section id="tab-pitch" class="tab-content hidden space-y-6">
       <div>
-        <h2 class="text-xl font-bold text-white tracking-tight">60-Second Layman Pitch & Elevator Script</h2>
-        <p class="text-xs text-gray-400">How to explain this product to non-technical users, clients, or angel investors without using confusing buzzwords.</p>
+        <h2 class="text-xl font-semibold text-[#F5F5F7] tracking-tight">Executive Layman Pitch</h2>
+        <p class="text-xs text-[#86868B] mt-1">Clear, jargon-free overview of the core value proposition and market problem.</p>
       </div>
 
-      <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
-        <div class="space-y-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono">The Problem</span>
-          <p class="text-sm text-gray-300 leading-relaxed" id="pitch-problem">
-            Prompt engineers and AI app builders lose track of their prompt variations across ChatGPT, Claude, and local scripts. It is messy, untracked, and prone to breaking in production.
-          </p>
+      <div class="apple-card p-6 sm:p-8 rounded-3xl space-y-6">
+        <div class="space-y-1.5">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-[#86868B]">The Problem</span>
+          <p class="text-sm text-[#D1D1D6] leading-relaxed" id="pitch-problem"></p>
         </div>
 
-        <div class="space-y-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-violet-400 font-mono">The Solution (EL5)</span>
-          <p class="text-sm text-gray-300 leading-relaxed" id="pitch-solution">
-            Think of PromptStudio as "Git for Prompts". Users write a prompt once, test it against 4 AI models side-by-side, benchmark latency and cost, and deploy the winner with a single API key.
-          </p>
+        <div class="space-y-1.5">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-[#86868B]">The Solution</span>
+          <p class="text-sm text-[#D1D1D6] leading-relaxed" id="pitch-solution"></p>
         </div>
 
-        <div class="space-y-2">
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 font-mono">The Secret Sauce (Moat)</span>
-          <p class="text-sm text-gray-300 leading-relaxed" id="pitch-moat">
-            Real-time evaluation caching that cuts token costs by 40% during team prompt collaboration.
-          </p>
+        <div class="space-y-1.5">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-[#86868B]">Key Differentiator</span>
+          <p class="text-sm text-[#D1D1D6] leading-relaxed" id="pitch-moat"></p>
         </div>
 
-        <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 text-xs text-gray-400">
-          💬 <strong class="text-gray-300">Word-for-Word Elevator Script:</strong>
-          <p class="italic text-gray-300 mt-1" id="pitch-script">
-            "We built PromptStudio to give engineering teams a central workbench where they can test, compare, and version AI prompts across OpenAI and Anthropic in real-time — saving thousands in API costs."
-          </p>
+        <div class="p-4 rounded-2xl bg-black/40 border border-white/[0.08] text-xs text-[#86868B] space-y-1.5">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-[#A1A1A6]">Word-for-Word Elevator Script</span>
+          <p class="text-sm text-[#F5F5F7] italic leading-relaxed" id="pitch-script"></p>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-gray-800/80 mt-12 py-6 text-center text-xs text-gray-500">
-    <p class="text-gray-400 font-medium">Vibexplain built by The SurfBoard</p>
+  <!-- APPLE MINIMALIST FOOTER -->
+  <footer class="border-t border-white/[0.08] mt-16 py-8 text-center text-xs text-[#86868B]">
+    <p class="font-medium text-[#A1A1A6]">Vibexplain built by The SurfBoard</p>
   </footer>
 
   <!-- EMBEDDED PROJECT DATA (REPLACED BY VIBEXPLAIN ENGINE) -->
@@ -325,56 +287,50 @@
       {
         "name": "Next.js 15 (App Router)",
         "category": "Frontend & Edge API",
-        "badge": "UI & Routing",
-        "whyChosen": "AI coders love Next.js because it unifies React frontends and serverless API endpoints into one directory. App Router enables Server Components for lightning-fast initial page loads.",
-        "tradeoff": "Adds serverless cold-start latency on rarely used routes. High vendor affinity with Vercel.",
+        "whyChosen": "Unifies React frontend and serverless API endpoints into a single directory structure. App Router enables Server Components for fast initial page loads.",
+        "tradeoff": "Introduces cold-start latency on rarely visited routes. Strong platform affinity toward Vercel.",
         "grillQuestion": "Why App Router over classic Pages Router?",
         "grillAnswer": "App Router streams HTML progressively and isolates server-only logic from client bundles, reducing browser payload by ~30%."
       },
       {
         "name": "Tailwind CSS + Shadcn UI",
-        "category": "Styling & Component System",
-        "badge": "Design System",
-        "whyChosen": "Utility-first CSS keeps style bundles minimal because unused classes are purged at build time. Shadcn provides accessible, copy-paste Radix primitives.",
-        "tradeoff": "HTML files look cluttered with long class strings; requires strict discipline to avoid inconsistent spacing.",
+        "category": "Design System",
+        "whyChosen": "Utility-first CSS keeps style bundles minimal because unused classes are purged at build time. Shadcn provides accessible Radix primitives without npm runtime bloat.",
+        "tradeoff": "HTML files carry longer class strings; requires discipline to maintain consistency across team components.",
         "grillQuestion": "Why copy-paste Shadcn instead of an npm library like MUI?",
         "grillAnswer": "Zero npm runtime bundle bloat; we own 100% of the component code and can customize styling without fighting CSS specificity."
       },
       {
         "name": "Prisma ORM + PostgreSQL",
-        "category": "Database Layer",
-        "badge": "Data Persistence",
-        "whyChosen": "Prisma provides end-to-end TypeScript safety and automated migrations. PostgreSQL guarantees ACID compliance and handles complex relational queries.",
-        "tradeoff": "Prisma query engine adds ~20MB binary overhead and connection pooling is required in serverless environments (e.g., PgBouncer / Prisma Accelerate).",
+        "category": "Data Persistence",
+        "whyChosen": "Prisma delivers end-to-end TypeScript safety and automated migrations. PostgreSQL guarantees ACID compliance for relational prompt history.",
+        "tradeoff": "Prisma query engine adds ~20MB binary overhead; connection pooling is mandatory in serverless environments.",
         "grillQuestion": "How do you handle DB connection limits on Vercel?",
-        "grillAnswer": "We use connection pooling (PgBouncer/Supabase pooler) to prevent serverless lambdas from exhausting Postgres max_connections."
+        "grillAnswer": "We use connection pooling (PgBouncer) to prevent serverless lambdas from exhausting Postgres max_connections."
       },
       {
         "name": "NextAuth.js (Auth.js)",
         "category": "Authentication",
-        "badge": "Security & Identity",
-        "whyChosen": "Standards-compliant OAuth (Google/GitHub) and JWT session tokens out of the box with zero external authentication service charges.",
-        "tradeoff": "Complex to implement multi-tenancy and custom session callbacks compared to managed auth like Clerk.",
+        "whyChosen": "Standards-compliant OAuth (Google/GitHub) and encrypted JWT session cookies with zero third-party service fees.",
+        "tradeoff": "Multi-tenancy and custom session callbacks can be complex to customize compared to hosted services.",
         "grillQuestion": "Are sessions stored in the DB or JWTs?",
         "grillAnswer": "We use encrypted JWT cookies to keep session validation edge-compatible and avoid hitting the DB on every single request."
       },
       {
         "name": "Vercel AI SDK",
         "category": "LLM Orchestration",
-        "badge": "Streaming & AI",
-        "whyChosen": "Standardized unified interface for OpenAI, Anthropic, and Gemini with built-in UI hooks for real-time text streaming.",
-        "tradeoff": "Abstracts provider-specific niche parameters (e.g., custom fine-tuning settings).",
+        "whyChosen": "Standardized unified interface for OpenAI, Anthropic, and Gemini with built-in React UI hooks for real-time text streaming.",
+        "tradeoff": "Abstracts away provider-specific niche parameters (e.g. fine-tuning settings).",
         "grillQuestion": "How do you handle stream dropouts or token timeouts?",
         "grillAnswer": "The frontend uses auto-reconnect backoff and the server buffers chunks with an abort controller timeout."
       },
       {
         "name": "Zod Validation",
-        "category": "Runtime Safety",
-        "badge": "Schema Validation",
-        "whyChosen": "Enforces strict runtime type validation on all incoming API requests and environment variables, blocking malformed payloads before they reach the DB.",
+        "category": "Runtime Type Safety",
+        "whyChosen": "Enforces strict runtime type validation on all incoming API requests, blocking malformed payloads before they reach the DB.",
         "tradeoff": "Adds minor CPU parsing overhead on massive payloads (>10MB).",
-        "grillQuestion": "Isn't TypeScript alone enough for type safety?",
-        "grillAnswer": "TypeScript only checks types at compile-time. Zod guarantees that runtime data coming from external user inputs matches the expected schema."
+        "grillQuestion": "Isn\'t TypeScript alone enough for type safety?",
+        "grillAnswer": "TypeScript only validates types at compile-time. Zod guarantees that runtime data coming from external user inputs matches the expected schema."
       }
     ],
     "dataFlow": [
@@ -382,107 +338,105 @@
         "step": 1,
         "title": "User Submits Prompt in UI",
         "actor": "Client (Browser)",
-        "description": "User enters prompt text and clicks 'Run Test'. The React state triggers an optimistic UI update, showing a loading indicator.",
+        "description": "User enters prompt text and triggers test execution. React state applies an optimistic loading state to the editor canvas.",
         "tech": "React 19 / Tailwind",
-        "codeSnippet": "const handleSubmit = async () => { setOptimisticState('loading'); ... }"
+        "codeSnippet": "const handleSubmit = async () => { setOptimisticState(\'loading\'); ... }"
       },
       {
         "step": 2,
-        "title": "Zod Schema & Auth Guard",
+        "title": "Schema Validation & Auth Guard",
         "actor": "Next.js Edge Middleware",
-        "description": "Incoming request hits `/api/generate`. Middleware verifies the JWT session cookie and Zod validates that the prompt is not empty and under 8k tokens.",
+        "description": "The incoming request hits /api/generate. Middleware verifies the JWT session cookie and Zod validates prompt length and temperature.",
         "tech": "NextAuth + Zod",
         "codeSnippet": "const session = await auth(); if (!session) return unauthorized();"
       },
       {
         "step": 3,
-        "title": "Rate Limit & Credit Deduct",
-        "actor": "Backend / DB Layer",
-        "description": "The server checks the user's remaining monthly prompt credits in PostgreSQL using Prisma within an atomic transaction.",
-        "tech": "Prisma ORM / Postgres",
+        "title": "Credit Verification & Rate Limit",
+        "actor": "Database Layer",
+        "description": "The server verifies the user\'s monthly prompt quota in PostgreSQL using Prisma within an atomic transaction.",
+        "tech": "Prisma ORM / PostgreSQL",
         "codeSnippet": "await prisma.user.update({ where: { id }, data: { credits: { decrement: 1 } } });"
       },
       {
         "step": 4,
-        "title": "Streaming Request to LLM Provider",
-        "actor": "AI SDK Core",
-        "description": "A streaming request is sent to Anthropic or OpenAI API. The response chunks are piped directly to the client as an HTTP chunked stream.",
-        "tech": "Vercel AI SDK",
-        "codeSnippet": "const stream = streamText({ model: anthropic('claude-3-5-sonnet'), prompt });"
+        "title": "Streaming Request to AI Provider",
+        "actor": "Vercel AI SDK Core",
+        "description": "An async streaming request is dispatched to Anthropic or OpenAI. Text chunks stream directly over HTTP chunked transfer encoding.",
+        "tech": "Anthropic / OpenAI API",
+        "codeSnippet": "const stream = streamText({ model: anthropic(\'claude-3-5-sonnet\'), prompt });"
       },
       {
         "step": 5,
-        "title": "Real-Time Render & History Save",
-        "actor": "Client & Async Worker",
-        "description": "The client renders words as they arrive in real-time. Once the stream ends, the completed interaction is logged to the database for analytics.",
-        "tech": "React UI Stream & DB Hook",
+        "title": "Real-Time DOM Render & History Persist",
+        "actor": "Client & Background Worker",
+        "description": "Words stream into the browser DOM in real time. Upon completion, the full prompt and latency telemetry persist to the database.",
+        "tech": "React Stream UI / Postgres",
         "codeSnippet": "return stream.toDataStreamResponse();"
       }
     ],
     "flashcards": [
       {
-        "question": "What happens if 1,000 users click 'Run Test' at the exact same second?",
-        "answer": "Our backend is stateless serverless functions, so it autoscales horizontally. The main bottleneck would be PostgreSQL connection limits, which we mitigate using PgBouncer connection pooling, and LLM rate-limits, which are queued with an exponential backoff worker."
+        "question": "What happens if 1,000 users click Run Test at the exact same second?",
+        "answer": "Our Next.js backend runs on serverless edge functions that auto-scale horizontally to absorb the traffic spike. The primary bottleneck would be PostgreSQL connection limits, which we mitigate using PgBouncer connection pooling, and downstream LLM API rate limits, which are managed with exponential backoff retries."
       },
       {
         "question": "How do you prevent malicious users from hacking your database via SQL Injection?",
         "answer": "We use Prisma ORM, which compiles queries into parameterized SQL statements. User inputs are never directly concatenated into raw SQL strings, making SQL injection virtually impossible."
       },
       {
-        "question": "Why didn't you just use Firebase or Supabase directly from the frontend?",
-        "answer": "Calling databases directly from the client requires complex Row Level Security (RLS) rules that are easy to misconfigure. Having a lightweight Next.js API layer gives us centralized Zod validation, secret key protection, and easier migration options."
+        "question": "Why didn\'t you just use Firebase or Supabase directly from the frontend?",
+        "answer": "Calling databases directly from the client requires complex Row Level Security (RLS) rules that are prone to misconfiguration. Having a lightweight Next.js API layer gives us centralized Zod validation, secret key protection, and easier future migration options."
       },
       {
-        "question": "Are your API secret keys exposed in the frontend bundle?",
-        "answer": "No. All provider keys (OpenAI, Anthropic, DB URLs) are stored in server-only environment variables without the `NEXT_PUBLIC_` prefix. Next.js strips them completely from the client-side JavaScript."
+        "question": "Are your AI provider secret keys exposed in the frontend bundle?",
+        "answer": "No. All provider keys (OpenAI, Anthropic, DB URLs) are stored in server-only environment variables without the NEXT_PUBLIC_ prefix. Next.js strips them completely from the client-side JavaScript."
       }
     ],
     "landmines": [
       {
         "severity": "HIGH",
-        "title": "Missing Server-Side Rate Limiter (DDoS / Bill Explosion)",
+        "title": "Missing Server-Side Rate Limiter",
         "file": "app/api/generate/route.ts",
-        "impact": "A user could write a simple bash loop calling `/api/generate` 5,000 times, causing a huge spike in your LLM API invoice.",
-        "fix": "Implement Upstash Redis rate limiting (@upstash/ratelimit) to restrict users to 10 requests per minute."
+        "impact": "Unauthenticated or automated requests could loop the generation endpoint, creating unexpected spikes in LLM API billing.",
+        "fix": "Implement Upstash Redis rate limiting to restrict clients to 10 requests per minute per IP."
       },
       {
         "severity": "MEDIUM",
         "title": "Unindexed Foreign Keys on PromptHistory Table",
         "file": "prisma/schema.prisma",
-        "impact": "As the table grows past 50,000 rows, querying user prompt history will cause full table scans, slowing response times from 30ms to 2.5s.",
-        "fix": "Add `@@index([userId, createdAt])` to the PromptHistory model in schema.prisma."
+        "impact": "As records exceed 50,000 rows, querying user history causes full table scans, increasing response latency from 30ms to over 2s.",
+        "fix": "Add @@index([userId, createdAt]) to the PromptHistory model in schema.prisma."
       },
       {
         "severity": "LOW",
         "title": "Client-Side Token Count Estimation",
         "file": "components/prompt-editor.tsx",
-        "impact": "Using simple character length divided by 4 gives an inaccurate token estimate, leading to minor billing discrepancies.",
-        "fix": "Use the official lightweight `gpt-tokenizer` or `tiktoken` library for exact BPE token counts."
+        "impact": "Dividing character count by 4 introduces minor inaccuracies in token estimates for non-English prompts.",
+        "fix": "Integrate the lightweight gpt-tokenizer library for precise BPE token counting."
       }
     ]
   }
   </script>
 
-  <!-- APPLICATION LOGIC -->
+  <!-- APPLICATION JAVASCRIPT -->
   <script>
     let projectData = {};
     let currentStep = 0;
 
-    // Load data from embedded script tag
     try {
       const raw = document.getElementById('vibexplain-data').textContent;
       projectData = JSON.parse(raw);
     } catch(e) {
-      console.error("Failed to parse embedded project data:", e);
+      console.error("Failed to parse project data:", e);
     }
 
-    // Populate Hero & Header
     function initHero() {
       document.getElementById('hero-project-name').textContent = projectData.projectName || "Project Blueprint";
-      document.getElementById('hero-tag').textContent = projectData.projectTagline || "Architecture Overview";
+      document.getElementById('hero-tag').textContent = projectData.projectTagline || "Full-Stack Architecture";
       document.getElementById('hero-one-liner').textContent = projectData.oneLiner || "";
-      document.getElementById('hero-files-count').textContent = (projectData.filesCount || 0) + " files";
-      document.getElementById('hero-stack-count').textContent = (projectData.stackCount || 0) + " core tech";
+      document.getElementById('hero-files-count').textContent = (projectData.filesCount || 0) + " files analyzed";
+      document.getElementById('hero-stack-count').textContent = (projectData.stackCount || 0) + " core technologies";
       document.getElementById('hero-timestamp').textContent = projectData.timestamp || "Recently";
 
       if (projectData.stats) {
@@ -491,16 +445,14 @@
         document.getElementById('stat-landmines').textContent = projectData.stats.landminesCount || "0";
       }
 
-      // Pitch Tab
       if (projectData.pitch) {
         document.getElementById('pitch-problem').textContent = projectData.pitch.problem || "";
         document.getElementById('pitch-solution').textContent = projectData.pitch.solution || "";
         document.getElementById('pitch-moat').textContent = projectData.pitch.moat || "";
-        document.getElementById('pitch-script').textContent = `"${projectData.pitch.elevatorScript || ""}"`;
+        document.getElementById('pitch-script').textContent = `\"${projectData.pitch.elevatorScript || ""}\"`;
       }
     }
 
-    // Render Architecture Nodes
     function renderNodes() {
       const container = document.getElementById('nodes-container');
       if (!container || !projectData.nodes) return;
@@ -508,30 +460,32 @@
 
       projectData.nodes.forEach((node, idx) => {
         const card = document.createElement('div');
-        card.className = "glass-panel p-5 rounded-xl border border-gray-800 hover:border-cyan-500/50 transition duration-300 space-y-3 flex flex-col justify-between";
+        card.className = "apple-card p-6 rounded-2xl flex flex-col justify-between space-y-4";
         card.innerHTML = `
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/60 font-mono">
-                ${node.badge || 'Component'}
-              </span>
-              <span class="text-[11px] text-gray-500 font-mono">#0${idx + 1}</span>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-[11px] text-[#86868B] font-medium uppercase tracking-wider">
+              <span>${node.category}</span>
+              <span class="font-mono">#0${idx + 1}</span>
             </div>
-            <h3 class="text-base font-bold text-white tracking-tight">${node.name}</h3>
-            <p class="text-xs text-gray-400 font-medium">${node.category}</p>
-            <div class="pt-2 text-xs text-gray-300 leading-relaxed">
-              <strong class="text-cyan-400">Why chosen:</strong> ${node.whyChosen}
+            <h3 class="text-base font-semibold text-[#F5F5F7] tracking-tight">${node.name}</h3>
+            
+            <div class="space-y-1 pt-1">
+              <div class="text-[11px] font-medium uppercase tracking-wider text-[#86868B]">Rationale</div>
+              <p class="text-xs text-[#A1A1A6] leading-relaxed">${node.whyChosen}</p>
             </div>
+
             ${node.tradeoff ? `
-              <div class="text-xs text-gray-400 leading-relaxed pt-1">
-                <strong class="text-amber-400">Trade-off:</strong> ${node.tradeoff}
+              <div class="space-y-1 pt-1">
+                <div class="text-[11px] font-medium uppercase tracking-wider text-[#86868B]">Trade-Off</div>
+                <p class="text-xs text-[#86868B] leading-relaxed">${node.tradeoff}</p>
               </div>
             ` : ''}
           </div>
+
           ${node.grillQuestion ? `
-            <div class="pt-3 border-t border-gray-800/80 text-[11px] bg-gray-900/40 -mx-5 -mb-5 p-3 rounded-b-xl">
-              <span class="font-bold text-violet-400">Tech Question:</span>
-              <p class="text-gray-300 italic mt-0.5">"${node.grillQuestion}"</p>
+            <div class="pt-3 border-t border-white/[0.06] text-xs space-y-1">
+              <div class="text-[11px] font-medium text-[#D1D1D6]">Technical Review Point</div>
+              <p class="text-xs text-[#86868B] italic">\"${node.grillQuestion}\"</p>
             </div>
           ` : ''}
         `;
@@ -539,7 +493,6 @@
       });
     }
 
-    // Render Data Flow
     function renderDataFlow() {
       if (!projectData.dataFlow || projectData.dataFlow.length === 0) return;
       const step = projectData.dataFlow[currentStep];
@@ -550,27 +503,22 @@
 
       const card = document.getElementById('step-card');
       card.innerHTML = `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-800 pb-4 mb-4">
-          <div class="flex items-center gap-3">
-            <span class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center font-mono text-sm border border-cyan-500/30">
-              ${step.step}
-            </span>
-            <div>
-              <h4 class="text-base font-bold text-white">${step.title}</h4>
-              <p class="text-xs text-gray-400">Actor: <span class="text-cyan-300 font-medium">${step.actor}</span></p>
-            </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3 mb-3">
+          <div>
+            <div class="text-[11px] uppercase tracking-wider text-[#86868B] font-medium">Step 0${step.step}</div>
+            <h4 class="text-base font-semibold text-[#F5F5F7] mt-0.5">${step.title}</h4>
           </div>
-          <span class="text-xs font-mono text-violet-400 bg-violet-950/60 px-2.5 py-1 rounded-md border border-violet-800/50 self-start sm:self-auto">
+          <span class="text-xs text-[#A1A1A6] bg-white/[0.05] px-3 py-1 rounded-full border border-white/[0.08] self-start sm:self-auto">
             ${step.tech}
           </span>
         </div>
 
-        <p class="text-sm text-gray-300 leading-relaxed mb-4">
+        <p class="text-sm text-[#A1A1A6] leading-relaxed mb-4">
           ${step.description}
         </p>
 
         ${step.codeSnippet ? `
-          <div class="rounded-lg bg-black/60 p-3 font-mono text-xs text-cyan-300 border border-gray-800 overflow-x-auto">
+          <div class="rounded-xl bg-[#09090B] p-3.5 font-mono text-xs text-[#E5E5EA] border border-white/[0.06] overflow-x-auto">
             <code>${step.codeSnippet}</code>
           </div>
         ` : ''}
@@ -589,7 +537,6 @@
       renderDataFlow();
     }
 
-    // Render Flashcards
     function renderFlashcards() {
       const container = document.getElementById('flashcards-container');
       if (!container || !projectData.flashcards) return;
@@ -597,40 +544,40 @@
 
       projectData.flashcards.forEach((item, idx) => {
         const wrapper = document.createElement('div');
-        wrapper.className = "perspective h-64 cursor-pointer select-none";
+        wrapper.className = "perspective h-60 cursor-pointer select-none";
         wrapper.onclick = () => wrapper.classList.toggle('flipped');
 
         wrapper.innerHTML = `
           <div class="flip-card-inner relative w-full h-full rounded-2xl">
             <!-- FRONT -->
-            <div class="flip-card-front absolute inset-0 glass-panel p-6 rounded-2xl flex flex-col justify-between border border-gray-800 hover:border-violet-500/40">
+            <div class="flip-card-front absolute inset-0 apple-card p-6 rounded-2xl flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between text-xs text-gray-400 mb-3">
-                  <span class="px-2 py-0.5 rounded bg-violet-950 text-violet-400 font-mono font-medium">Question #0${idx + 1}</span>
-                  <span class="text-gray-500">Tap to reveal answer 🔄</span>
+                <div class="flex items-center justify-between text-xs text-[#86868B] mb-2">
+                  <span class="text-[11px] font-semibold uppercase tracking-wider text-[#A1A1A6]">Question 0${idx + 1}</span>
+                  <span class="text-[11px]">Click to reveal</span>
                 </div>
-                <h3 class="text-lg font-bold text-white tracking-tight mt-2">
-                  "${item.question}"
+                <h3 class="text-base sm:text-lg font-medium text-[#F5F5F7] tracking-tight mt-3">
+                  \"${item.question}\"
                 </h3>
               </div>
-              <div class="text-xs text-gray-500 flex items-center gap-1.5 font-medium">
-                <span>🛡️ Founder Defense Practice</span>
+              <div class="text-[11px] text-[#636366] font-medium">
+                Defense Strategy Card
               </div>
             </div>
 
             <!-- BACK -->
-            <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-950 p-6 rounded-2xl flex flex-col justify-between border border-cyan-500/50 glow-cyan">
+            <div class="flip-card-back absolute inset-0 bg-[#1C1C1E] border border-white/20 p-6 rounded-2xl flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between text-xs text-cyan-400 mb-2 font-mono">
-                  <span>CONFIDENT DEFENSE</span>
-                  <span class="text-gray-400">Tap to flip 🔄</span>
+                <div class="flex items-center justify-between text-[11px] text-[#A1A1A6] font-semibold uppercase tracking-wider mb-2">
+                  <span>Authoritative Defense</span>
+                  <span class="text-[#636366]">Click to flip</span>
                 </div>
-                <p class="text-xs sm:text-sm text-gray-200 leading-relaxed pt-1">
+                <p class="text-xs sm:text-sm text-[#E5E5EA] leading-relaxed pt-1">
                   ${item.answer}
                 </p>
               </div>
-              <div class="text-[11px] text-cyan-400/80 font-mono">
-                ✓ Memorize key architectural keywords
+              <div class="text-[11px] text-[#86868B]">
+                Key architectural defense points
               </div>
             </div>
           </div>
@@ -639,61 +586,55 @@
       });
     }
 
-    // Render Landmines
     function renderLandmines() {
       const container = document.getElementById('landmines-container');
       if (!container || !projectData.landmines) return;
       container.innerHTML = '';
 
       projectData.landmines.forEach(item => {
-        const severityColors = {
-          HIGH: 'bg-rose-950/80 text-rose-400 border-rose-800',
-          MEDIUM: 'bg-amber-950/80 text-amber-400 border-amber-800',
-          LOW: 'bg-cyan-950/80 text-cyan-400 border-cyan-800'
+        const severityIndicators = {
+          HIGH: { dot: 'bg-[#FF453A]', label: 'High Priority' },
+          MEDIUM: { dot: 'bg-[#FF9F0A]', label: 'Medium Priority' },
+          LOW: { dot: 'bg-[#0A84FF]', label: 'Low Priority' }
         };
-        const badgeClass = severityColors[item.severity] || severityColors.MEDIUM;
+        const indicator = severityIndicators[item.severity] || severityIndicators.MEDIUM;
 
         const card = document.createElement('div');
-        card.className = "glass-panel p-5 rounded-xl border border-gray-800/80 space-y-3";
+        card.className = "apple-card p-5 rounded-2xl space-y-3";
         card.innerHTML = `
           <div class="flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono font-bold px-2 py-0.5 rounded border ${badgeClass}">
-                ${item.severity} SEVERITY
-              </span>
-              <h3 class="text-sm sm:text-base font-bold text-white">${item.title}</h3>
+            <div class="flex items-center gap-2.5">
+              <span class="w-2 h-2 rounded-full ${indicator.dot}"></span>
+              <span class="text-xs font-semibold text-[#F5F5F7]">${item.title}</span>
+              <span class="text-[11px] text-[#86868B] font-medium">(${indicator.label})</span>
             </div>
-            ${item.file ? `<span class="text-xs font-mono text-gray-400 bg-gray-900 px-2 py-1 rounded border border-gray-800">${item.file}</span>` : ''}
+            ${item.file ? `<span class="text-[11px] font-mono text-[#A1A1A6] bg-white/[0.04] px-2.5 py-0.5 rounded-full border border-white/[0.06]">${item.file}</span>` : ''}
           </div>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            <strong class="text-rose-400">Risk / Impact:</strong> ${item.impact}
+          <p class="text-xs text-[#A1A1A6] leading-relaxed">
+            <strong class="text-[#D1D1D6] font-medium">Risk:</strong> ${item.impact}
           </p>
-          <div class="text-xs text-gray-300 leading-relaxed bg-gray-900/60 p-3 rounded-lg border border-gray-800">
-            <strong class="text-emerald-400">Recommended Fix:</strong> ${item.fix}
+          <div class="text-xs text-[#A1A1A6] leading-relaxed bg-black/40 p-3 rounded-xl border border-white/[0.04]">
+            <strong class="text-[#F5F5F7] font-medium">Suggested Resolution:</strong> ${item.fix}
           </div>
         `;
         container.appendChild(card);
       });
     }
 
-    // Tab Switching
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(el => {
-        el.classList.remove('text-cyan-400', 'bg-gray-800/80', 'border-gray-700/80');
-        el.classList.add('text-gray-400');
+        el.className = "tab-btn px-4 py-2 font-medium rounded-full text-xs text-[#8E8E93] hover:text-[#F5F5F7] transition-all whitespace-nowrap";
       });
 
       const activeTab = document.getElementById(`tab-${tabId}`);
       const activeBtn = document.getElementById(`tab-btn-${tabId}`);
       if (activeTab) activeTab.classList.remove('hidden');
       if (activeBtn) {
-        activeBtn.classList.add('text-cyan-400', 'bg-gray-800/80', 'border-gray-700/80');
-        activeBtn.classList.remove('text-gray-400');
+        activeBtn.className = "tab-btn px-4 py-2 font-medium rounded-full text-xs text-black bg-white shadow-sm transition-all whitespace-nowrap";
       }
     }
 
-    // Init All
     window.addEventListener('DOMContentLoaded', () => {
       initHero();
       renderNodes();
