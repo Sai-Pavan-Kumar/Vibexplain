@@ -104,7 +104,7 @@ sequenceDiagram
 > [!IMPORTANT]
 > **Need human architectural audit or production hardening?**  
 > Connect with senior engineers to audit your auth, database connection pool, and security headers before public launch.  
-> 👉 **[Schedule a 30-Minute Architecture Audit](https://github.com/Vibexplain)**
+> 👉 **[Schedule a 30-Minute Architecture Audit](https://github.com/Sai-Pavan-Kumar/Vibexplain)**
 
 ---
-*Generated with ⚡ [Vibexplain](https://github.com/Vibexplain) — The Founder Technical Defense System for Vibe Coders.*
+*Generated with ⚡ [Vibexplain](https://github.com/Sai-Pavan-Kumar/Vibexplain) — The Founder Technical Defense System for Vibe Coders.*

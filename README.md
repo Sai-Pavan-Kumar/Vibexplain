@@ -57,7 +57,7 @@ You can use Vibexplain across all major AI agent environments:
 ### Option A: Antigravity IDE / CLI
 Clone or copy this repository into your personal skills directory:
 ```bash
-git clone https://github.com/Vibexplain/vibexplain.git ~/.gemini/antigravity/skills/vibexplain
+git clone https://github.com/Sai-Pavan-Kumar/Vibexplain.git ~/.gemini/antigravity/skills/vibexplain
 ```
 Inside any project in Antigravity, simply prompt:
 > *"Run Vibexplain on my codebase and generate my architecture blueprint."*
